@@ -1,0 +1,90 @@
+
+/* 1. MAIN WINDOW */
+*{
+   border: none;
+   border-radius: 10px;
+   font-size: 17px;
+   min-height: 0;
+   padding: 0;
+   margin: 0;
+}
+.modules-center {
+    background-color: rgba(10, 10, 12, 0.7); 
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    padding: 2px 8px;   /* Extra breathing room inside the single capsule */
+}
+window#waybar {
+    background-color: rgba(0, 0, 0, 0); 
+    border: none;
+}
+
+/* 2. SHARED CAPSULE STYLE (The "Pills") */
+#cpu, #memory, #battery, #pulseaudio, #clock, #network, #tray {
+    margin: 0px 3px;
+    padding: 0px 5px;    
+    min-height: 24px;     
+    font-weight: bold;
+    color: #ffffff;       
+    min-width: 20px;
+}
+ 
+#workspaces {
+  background: transparent;
+  padding: 0;
+  margin: 0px 10px 0px 10px;
+  border: none;
+  box-shadow: none;
+}
+
+#workspaces button {
+    color: rgba(255, 255, 255, 0.3); 
+    background: transparent;  
+    border-radius: 30px;
+    margin: 6px 3px;      
+    padding: 0px 3px;
+    min-width: 16px;      
+    min-height: 16px;
+    font-size: 13px;       
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    /* Uses the very last, brightest highlight color for the active workspace block */
+    background: @color15;  
+    color: #101012;       /* Dark text inside the bright pill so you can read the number */
+    font-size: 13px;      
+    min-width: 40px;
+    font-weight: 800;
+}
+
+/* 4. MODULE SPECIFIC COLORS & SPACING */
+#clock { 
+    color: @color15;      /* Uses the beautiful peach/pink accent */
+}
+
+label {
+    margin: 0 4px;
+}
+
+/* Forcing all icons to pull ONLY from the last 3 vibrant color slots */
+#cpu { color: @color13; }        /* Vibrant Accent 1 */
+#memory { color: @color14; }     /* Vibrant Accent 2 */
+#network { color: @color15; }    /* Brightest Accent 3 */
+#battery { color: @color13; }    
+#pulseaudio { color: @color4; } 
+#pulseaudio.muted { color: rgba(255, 255, 255, 0.2); }
+
+/* 5. TRAY & CLEANUP */
+#tray {
+    background: transparent;
+    padding: 0 5px;
+}
+
+#tray > .passive, #tray > .active {
+    margin: 0 3px;
+}
+
+#battery {
+  margin-right: 10px;
+}

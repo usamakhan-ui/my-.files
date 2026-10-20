@@ -1,0 +1,106 @@
+/**
+ * Rofi Steam Floating Dropdown Theme (No Window Background)
+ */
+
+configuration {
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    drun-display-format: "{name}";
+}
+
+* {
+    /* Steam Color Palette */
+    steam-bg-dark:       #373c49; /* Dark dropdown background */
+    steam-input-bg:      #1b2838;   /* Search box grey */
+    steam-border-grey:   #1a9fff;
+    steam-cyan:          #1a9fff;
+    steam-text-muted:    #ffffff;
+    steam-text:          #ffffff;
+
+    border-radius:       0px;
+    font:                "Ubuntu 11";
+}
+
+/* Entire window is completely transparent */
+window {
+    background-color: transparent;
+    border:           0px;
+    padding:          0px;
+    width:            640px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          10px; /* The gap between search box and dropdown list */
+    border:           0px;
+    padding:          0px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Floating Search Box                                                       */
+/* ------------------------------------------------------------------------- */
+inputbar {
+    background-color: @steam-input-bg;
+    border:           3px;
+    border-color:     @steam-border-grey;
+    padding:          8px 12px;
+    children:         [ entry ];
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @steam-text;
+    placeholder:        "Search...";
+    placeholder-color:  @steam-text-muted;
+    font:               "Ubuntu Italic 11";
+    padding:            0px;
+    border:             0px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Dropdown List (Separate Panel Below Search Bar)                            */
+/* ------------------------------------------------------------------------- */
+listview {
+    background-color: @steam-bg-dark; /* Panel background for dropdown */
+    border:           0px;
+    border-color:     @steam-border-grey;
+    fixed-height:     0;
+    margin:           0px;
+    border-radius:    10px;
+    padding:          0px 0px;
+    spacing:          0px;
+    lines:            8;
+    scrollbar:        false;
+}
+
+element {
+    padding:          10px 12px;
+    border:           0px;
+    margin:           0px;
+    background-color: transparent;
+    text-color:       @steam-text-muted;
+    children:         [ element-icon, element-text ];
+    spacing:          10px;
+}
+
+element-icon {
+    size:             20px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+element selected.normal {
+    background-color: @steam-cyan;
+    text-color:       #ffffff;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color:       @steam-text-muted;
+}

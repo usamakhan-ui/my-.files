@@ -1,0 +1,79 @@
+* {
+    bg: #373c49;
+    bg-tile: #1b2838;
+    bg-selected: #1a9fff;
+    fg: #c6d4df;
+    accent: #373c49;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 60%;
+    height: 44%;
+    border-radius: 8px;
+    background-color: @bg;
+    border: 0px solid;
+    border-color: @accent;
+    padding: 1px;
+    margin: 0px 1px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 1px;
+}
+
+inputbar {
+    background-color: @bg-tile;
+    border-radius: 4px;
+    padding: 10px 15px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    margin: 0 1px 0 0;
+}
+
+entry {
+    placeholder: "Search library...";
+    placeholder-color: #4f535b;
+}
+
+listview {
+    columns: 5;
+    lines: 3;
+    spacing: 2px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    orientation: vertical;
+    padding: 12px;
+    border-radius: 0px;
+    background-color: @bg-tile;
+    children: [ element-icon, element-text ];
+    spacing: 8px;
+}
+
+element selected {
+    background-color: @bg-selected;
+    border: 1px solid;
+    border-color: @accent;
+}
+
+element-icon {
+    size: 84px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    font: "Sans 10";
+}
